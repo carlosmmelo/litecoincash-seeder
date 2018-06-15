@@ -46,11 +46,30 @@ e-mail address (with the @ part replaced by .) using -m.
 USAGE: CLOUDFLARE API MODE
 --------------------------
 
-Have the seeder above running all the time, but with no NS record.
+Have the seeder above running all the time, but with no NS record:
 
-Fill in CloudFlare API config and have the CloudFlare upload run on a
-cron job.
+```bash
+./dnsseed -h {host_ip}
+```
 
+Fill in CloudFlare API config (see ./cf-uploader/README.md) and have the CloudFlare upload run on a
+cron job:
+
+#### Set up a crontab entry to call Sentinel every 30 minutes:
+
+#### Create a python virtual env:
+
+```bash
+virtualenv ./venv
+```
+
+```$ crontab -e```
+
+In the crontab editor, add the lines below, replacing '/home/YOURUSERNAME/sentinel' to the path where you cloned sentinel to:
+
+```bash
+* * * * * cd {xsn_seeder_path}/cf-uploader && ./venv/bin/python seeder.py >/dev/null 2>&1
+```
 
 COMPILING
 ---------
