@@ -397,7 +397,7 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"bonnie.ns.cloudflare.com", "david.ns.cloudflare.com", ""};
+static const string mainnet_seeds[] = {"107.21.133.151", ""};
 static const string testnet_seeds[] = {"127.0.0.1", ""};
 static const string *seeds = mainnet_seeds;
 
